@@ -1,4 +1,4 @@
-import React from 'react'; // لو بتستخدم JSX بس بدون useState أو useRef
+import React from 'react'; 
 import { Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -28,7 +28,7 @@ function App() {
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Cart" element={<Cart />} />
       <Route path="/Product" element={<Product />} />
-      <Route path="/DetailsProduct" element={<DetailsProduct />} />
+      <Route path="/product/:id" element={<DetailsProduct />} />
       <Route path="/Payment" element={<Payment />} />
       <Route path="/OrderTracking" element={<OrderTracking />} />
       <Route path="/Successful" element={<Successful />} />
