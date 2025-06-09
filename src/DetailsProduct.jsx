@@ -33,7 +33,7 @@ function DetailsProduct() {
     existing.quantity += 1;
   }
 
-
+  localStorage.setItem("cart", JSON.stringify(cart));
 };
 
   if (!product) return <div className="p-5 text-center">Loading...</div>;
