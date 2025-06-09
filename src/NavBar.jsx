@@ -16,8 +16,8 @@ function CollapsibleExample() {
         {/* الأيقونات دايمًا ظاهرة على اليمين */}
         <div className="d-flex align-items-center mx-auto text-center gap-3 order-lg-2">
           <Nav.Link href="#search"><FaSearch size={18} color="white" /></Nav.Link>
-          <Nav.Link href="./Cart"><FaShoppingCart size={18} color="white" /></Nav.Link>
-          <Nav.Link href="./profile"><FaUser size={18} color="white" /></Nav.Link>
+          <Nav.Link href="/Cart"><FaShoppingCart size={18} color="white" /></Nav.Link>
+          <Nav.Link href="/profile"><FaUser size={18} color="white" /></Nav.Link>
         </div>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" className="ms-auto" />
@@ -25,7 +25,7 @@ function CollapsibleExample() {
         <Navbar.Collapse id="responsive-navbar-nav" className="order-lg-1">
           <Nav className="mx-auto text-center">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="./Product">Product</Nav.Link>
+            <Nav.Link href="/Product">Product</Nav.Link>
             <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
