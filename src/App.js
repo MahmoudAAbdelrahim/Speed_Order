@@ -13,7 +13,7 @@ import DetailsProduct from './DetailsProduct'
 import Payment from './Payment'
 import OrderTracking from './OrderTracking'
 import Successful from './Successful'
-
+import NotFound from "./NotFound"; // دي لو المسار غلط او مش عندنا   
 import Footer from './Footer'
 import './App.css';
 function App() {
@@ -32,7 +32,8 @@ function App() {
       <Route path="/Payment" element={<Payment />} />
       <Route path="/OrderTracking" element={<OrderTracking />} />
       <Route path="/Successful" element={<Successful />} />
-      <Route path="/NavBar" component={<Footer/>} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/Footer" component={<Footer/>} />
     </Routes>
   <Footer/>
   </>
