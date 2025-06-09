@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "name": "Product 1",
+    "price": 0,
+    "image": "",
+    "description": "",
+    "category": "Other"
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "price": 0,
+    "image": "",
+    "description": "",
+    "category": "Other"
+  },
+  {
+    "id": 3,
+    "name": "Product 3",
+    "price": 0,
+    "image": "",
+    "description": "",
+    "category": "Other"
+  },
+  {
+    "id": 4,
+    "name": "Product 4",
+    "price": 0,
+    "image": "",
+    "description": "",
+    "category": "Other"
+  },
+  {
+    "id": 5,
+    "name": "Product 5",
+    "price": 0,
+    "image": "",
+    "description": "",
+    "category": "Other"
+  },
+  {
+    "id": 6,
+    "name": "Smart Watch",
+    "price": 1200,
+    "image": "https://via.placeholder.com/200x200?text=Smart+Watch",
+    "description": "High quality smart watch with health tracking features.",
+    "category": "Wearables"
+  },
+  {
+    "id": 7,
+    "name": "Wireless Headphones",
+    "price": 850,
+    "image": "https://via.placeholder.com/200x200?text=Headphones",
+    "description": "Noise-cancelling wireless headphones with long battery life.",
+    "category": "Audio"
+  },
+  {
+    "id": 8,
+    "name": "Gaming Mouse",
+    "price": 450,
+    "image": "https://via.placeholder.com/200x200?text=Gaming+Mouse",
+    "description": "Ergonomic gaming mouse with RGB lighting.",
+    "category": "Gaming"
+  },
+  {
+    "id": 9,
+    "name": "Mechanical Keyboard",
+    "price": 950,
+    "image": "https://via.placeholder.com/200x200?text=Keyboard",
+    "description": "RGB mechanical keyboard with blue switches.",
+    "category": "Gaming"
+  },
+  {
+    "id": 10,
+    "name": "Laptop Stand",
+    "price": 300,
+    "image": "https://via.placeholder.com/200x200?text=Laptop+Stand",
+    "description": "Adjustable laptop stand made of aluminum.",
+    "category": "Accessories"
+  },
+  {
+    "id": 11,
+    "name": "USB-C Hub",
+    "price": 200,
+    "image": "https://via.placeholder.com/200x200?text=USB-C+Hub",
+    "description": "Multiport USB-C hub with HDMI and SD card slots.",
+    "category": "Accessories"
+  },
+  {
+    "id": 12,
+    "name": "Bluetooth Speaker",
+    "price": 600,
+    "image": "https://via.placeholder.com/200x200?text=Speaker",
+    "description": "Portable speaker with deep bass and waterproof design.",
+    "category": "Audio"
+  },
+  {
+    "id": 13,
+    "name": "Phone Tripod",
+    "price": 180,
+    "image": "https://via.placeholder.com/200x200?text=Tripod",
+    "description": "Flexible tripod for smartphones and cameras.",
+    "category": "Photography"
+  },
+  {
+    "id": 14,
+    "name": "Fitness Tracker",
+    "price": 700,
+    "image": "https://via.placeholder.com/200x200?text=Fitness+Tracker",
+    "description": "Tracks steps, heart rate, and sleep patterns.",
+    "category": "Wearables"
+  },
+  {
+    "id": 15,
+    "name": "Action Camera",
+    "price": 1500,
+    "image": "https://via.placeholder.com/200x200?text=Action+Camera",
+    "description": "4K waterproof action camera for outdoor adventures.",
+    "category": "Photography"
+  },
+  {
+    "id": 16,
+    "name": "Mini Projector",
+    "price": 2000,
+    "image": "https://via.placeholder.com/200x200?text=Projector",
+    "description": "Compact projector with HDMI and USB support.",
+    "category": "Entertainment"
+  },
+  {
+    "id": 17,
+    "name": "Power Bank 20000mAh",
+    "price": 400,
+    "image": "https://via.placeholder.com/200x200?text=Power+Bank",
+    "description": "High-capacity power bank for all devices.",
+    "category": "Power"
+  },
+  {
+    "id": 18,
+    "name": "LED Desk Lamp",
+    "price": 250,
+    "image": "https://via.placeholder.com/200x200?text=Desk+Lamp",
+    "description": "Dimmable LED desk lamp with USB charging port.",
+    "category": "Home"
+  },
+  {
+    "id": 19,
+    "name": "Wireless Charger",
+    "price": 350,
+    "image": "https://via.placeholder.com/200x200?text=Wireless+Charger",
+    "description": "Fast wireless charging pad for smartphones.",
+    "category": "Power"
+  },
+  {
+    "id": 20,
+    "name": "VR Headset",
+    "price": 1800,
+    "image": "https://via.placeholder.com/200x200?text=VR+Headset",
+    "description": "Immersive virtual reality headset for mobile and PC.",
+    "category": "Entertainment"
+  },
+  {
+    "id": 21,
+    "name": "Smartphone Gimbal",
+    "price": 950,
+    "image": "https://via.placeholder.com/200x200?text=Gimbal",
+    "description": "Stabilized gimbal for smooth video shooting.",
+    "category": "Photography"
+  },
+  {
+    "id": 22,
+    "name": "Smart Light Bulb",
+    "price": 150,
+    "image": "https://via.placeholder.com/200x200?text=Light+Bulb",
+    "description": "Color-changing smart bulb with voice control.",
+    "category": "Home"
+  },
+  {
+    "id": 23,
+    "name": "Portable Monitor",
+    "price": 2300,
+    "image": "https://via.placeholder.com/200x200?text=Portable+Monitor",
+    "description": "USB-C powered portable monitor for work on the go.",
+    "category": "Accessories"
+  },
+  {
+    "id": 24,
+    "name": "Cooling Pad",
+    "price": 280,
+    "image": "https://via.placeholder.com/200x200?text=Cooling+Pad",
+    "description": "Laptop cooling pad with dual fans and LED lights.",
+    "category": "Accessories"
+  },
+  {
+    "id": 25,
+    "name": "Smart Plug",
+    "price": 170,
+    "image": "https://via.placeholder.com/200x200?text=Smart+Plug",
+    "description": "Wi-Fi smart plug compatible with Alexa and Google Assistant.",
+    "category": "Home"
+  },
+  {
+    "id": 26,
+    "name": "Camera Lens Kit",
+    "price": 320,
+    "image": "https://via.placeholder.com/200x200?text=Lens+Kit",
+    "description": "Lens kit for smartphone photography.",
+    "category": "Photography"
+  },
+  {
+    "id": 27,
+    "name": "Laptop Backpack",
+    "price": 650,
+    "image": "https://via.placeholder.com/200x200?text=Backpack",
+    "description": "Water-resistant backpack with USB charging port.",
+    "category": "Accessories"
+  },
+  {
+    "id": 28,
+    "name": "Drawing Tablet",
+    "price": 1250,
+    "image": "https://via.placeholder.com/200x200?text=Drawing+Tablet",
+    "description": "Digital drawing tablet with pen and pressure sensitivity.",
+    "category": "Graphics"
+  },
+  {
+    "id": 29,
+    "name": "Webcam 1080p",
+    "price": 500,
+    "image": "https://via.placeholder.com/200x200?text=Webcam",
+    "description": "HD webcam with built-in microphone.",
+    "category": "Accessories"
+  },
+  {
+    "id": 30,
+    "name": "Noise Machine",
+    "price": 220,
+    "image": "https://via.placeholder.com/200x200?text=Noise+Machine",
+    "description": "Helps sleep with natural background sounds.",
+    "category": "Health"
+  },
+  {
+    "id": 31,
+    "name": "Flash Drive 128GB",
+    "price": 180,
+    "image": "https://via.placeholder.com/200x200?text=Flash+Drive",
+    "description": "USB 3.0 flash drive with high speed.",
+    "category": "Storage"
+  },
+  {
+    "id": 32,
+    "name": "Smart Thermometer",
+    "price": 270,
+    "image": "https://via.placeholder.com/200x200?text=Thermometer",
+    "description": "Digital smart thermometer with app sync.",
+    "category": "Health"
+  },
+  {
+    "id": 33,
+    "name": "Ring Light",
+    "price": 350,
+    "image": "https://via.placeholder.com/200x200?text=Ring+Light",
+    "description": "Selfie ring light with phone holder.",
+    "category": "Photography"
+  },
+  {
+    "id": 34,
+    "name": "Key Finder",
+    "price": 130,
+    "image": "https://via.placeholder.com/200x200?text=Key+Finder",
+    "description": "Bluetooth key finder with alarm and app.",
+    "category": "Accessories"
+  },
+  {
+    "id": 35,
+    "name": "Tablet Stand",
+    "price": 290,
+    "image": "https://via.placeholder.com/200x200?text=Tablet+Stand",
+    "description": "Adjustable stand for tablets and e-readers.",
+    "category": "Accessories"
+  }
+]
