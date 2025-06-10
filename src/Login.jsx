@@ -19,14 +19,13 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch("https://speedorder.ct.ws/register.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+const res = await fetch("/api/register", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(formData),
+});
 
       const result = await res.json();
       console.log(result);
