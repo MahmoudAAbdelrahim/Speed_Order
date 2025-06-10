@@ -38,11 +38,12 @@ function RegisterForm() {
   return (
     <form onSubmit={handleSubmit}>
       <input name="name" onChange={handleChange} placeholder="الاسم" required />
-      <input name="email" type="email" onChange={handleChange} placeholder="الإيميل" required />
-      <input name="phone" onChange={handleChange} placeholder="الموبايل" required />
-      <input name="address" onChange={handleChange} placeholder="العنوان" required />
-      <input name="password" type="password" onChange={handleChange} placeholder="الباسورد" required />
-      <input name="image" onChange={handleChange} placeholder="رابط الصورة" />
+     <input name="email" value={formData.email} onChange={handleChange} placeholder="الإيميل" />
+<input name="phone" value={formData.phone} onChange={handleChange} placeholder="الموبايل" />
+<input name="address" value={formData.address} onChange={handleChange} placeholder="العنوان" />
+<input name="password" value={formData.password} onChange={handleChange} placeholder="الباسورد" />
+<input name="image" value={formData.image} onChange={handleChange} placeholder="رابط الصورة" />
+
       <button type="submit">تسجيل</button>
     </form>
   );
