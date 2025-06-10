@@ -16,17 +16,16 @@ function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // هنا بنستخدم FormData عشان PHP يقدر يقرأ القيم من $_POST
-    const form = new FormData();
-    for (const key in formData) {
-      form.append(key, formData[key]);
-    }
+ const form = new FormData();
+for (const key in formData) {
+  form.append(key, formData[key]);
+}
 
-    try {
-      const res = await fetch("https://speedorder.ct.ws/register.php", {
-        method: "POST",
-        body: form,
-      });
+const res = await fetch("https://speedorder.ct.ws/register.php", {
+  method: "POST",
+  body: form,
+});
+
 
       const result = await res.text();
       alert(result);
