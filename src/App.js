@@ -18,6 +18,8 @@ import NotFound from "./NotFound"; // دي لو المسار غلط او مش ع
 import Footer from './Footer'
 
 import './App.css';
+
+
 function App() {
   return (
   <>
