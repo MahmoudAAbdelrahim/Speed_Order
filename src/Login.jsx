@@ -1,57 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+const Login = () => {
+  const navigate = useNavigate();
 
-const RegisterForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    password: "",
-    image: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  useEffect(() => {
+    const user = localStorage.getItem("userInfo");
+    if (user) {
+      const userData = JSON.parse(user);
+      if (userData.isLoggedIn) {
+        navigate("/profile");
+      }
+    }
+  }, [navigate]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const res = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    const userData = JSON.parse(localStorage.getItem("userInfo"));
 
-      const result = await res.json();
-      console.log(result);
+    if (!userData) {
+      setErrorMsg("You don't have an account yet. Please sign up first.");
+      return;
+    }
 
-      if (result.success) {
-        alert("✅ تم التسجيل بنجاح");
-      } else {
-        alert("❌ حصل خطأ: " + result.error);
-      }
-    } catch (error) {
-      alert("⚠️ فشل الاتصال بالسيرفر: " + error.message);
+    if (email === userData.email && password === userData.password) {
+      // تسجيل الدخول ناجح
+      localStorage.setItem("userInfo", JSON.stringify({ ...userData, isLoggedIn: true }));
+      navigate("/profile");
+    } else {
+      setErrorMsg("The email or password is incorrect. Please try again.");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input name="name" placeholder="الاسم" onChange={handleChange} />
-      <input name="email" type="email" placeholder="الإيميل" onChange={handleChange} />
-      <input name="phone" placeholder="رقم الهاتف" onChange={handleChange} />
-      <input name="address" placeholder="العنوان" onChange={handleChange} />
-      <input name="password" type="password" placeholder="كلمة المرور" onChange={handleChange} />
-      <button type="submit">تسجيل</button>
-    </form>
+    <>
+    <div className="container Login my-5">
+      <h1 className="TextLogin mb-4  text-center "> Login..</h1>
+      <form onSubmit={handleSubmit} className="FormLogin row g-3">
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <input
+            className="inputLogin"
+            placeholder="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <input
+          className="inputLogin"
+            placeholder="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        {/* مكان رسالة الخطأ */}
+        {errorMsg && (
+          <div className="col-md-6 offset-md-3 text-danger fw-bold">
+            {errorMsg}
+          </div>
+        )}
+
+        <div className="gap-2 mb-2" style={{ display: "flex", justifyContent: "center"   }}>
+          <button className="btnLogin" type="submit">
+              Login
+          </button>
+        </div>
+      </form>
+   
+    </div>
+           <div  className="buttonLoSi  my-3">                
+            <button className="signupB"> login </button>
+                <a className="loginB " href="/SignUp"><button className="loginB" >signup</button></a>
+          </div>
+          </>
   );
 };
 
-export default RegisterForm;
+export default Login;
