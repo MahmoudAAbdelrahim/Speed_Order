@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -6,6 +6,15 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaShoppingCart, FaSearch, FaUser } from 'react-icons/fa';
 
 function CollapsibleExample() {
+  const [userImage, setUserImage] = useState("/img/features3.png");
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("userInfo"));
+    if (storedUser && storedUser.image) {
+      setUserImage(storedUser.image);
+    }
+  }, []);
+
   return (
     <Navbar collapseOnSelect expand="lg" className="custom-navbar" variant="dark">
       <Container>
@@ -13,11 +22,18 @@ function CollapsibleExample() {
           <span className="logo-text">Speed <small>order</small></span>
         </Navbar.Brand>
 
-        {/* الأيقونات دايمًا ظاهرة على اليمين */}
         <div className="d-flex align-items-center mx-auto text-center gap-3 order-lg-2">
           <Nav.Link href="#search"><FaSearch size={18} color="white" /></Nav.Link>
           <Nav.Link href="/Cart"><FaShoppingCart size={18} color="white" /></Nav.Link>
-          <Nav.Link href="/profile"><FaUser size={18} color="white" /></Nav.Link>
+          <Nav.Link href="/profile">
+          <div className="bob">
+            <img
+              src={userImage}
+              alt="<FaUser size={18} />"
+              style={{ width: "30px", height: "30px", borderRadius: "50%", objectFit: "cover" }}
+            />
+          </div>
+          </Nav.Link>
         </div>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" className="ms-auto" />
@@ -27,7 +43,7 @@ function CollapsibleExample() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/Product">Product</Nav.Link>
             <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="/OrderTracking">OrderTracking</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
