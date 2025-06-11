@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
+import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
+import Button from 'react-bootstrap/Button'
 const Cart = () => {
   const [cart, setCart] = useState([]);
+  const [shipping, setShipping] = useState(30); // سعر التوصيل
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -30,36 +33,26 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(updatedCart));
   };
 
-  const totalCost = cart
-    .reduce((acc, item) => acc + item.price * item.quantity, 0)
-    .toFixed(2);
-
-
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const totalCost = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const finalTotal = totalCost + shipping;
 
   if (cart.length === 0) {
     return (
       <div className="container mt-5 text-center">
-        <h3>  The Cart is empty</h3>
-        <p className="text-muted">Start shopping and add your favorite products.</p>
+        <h3> The Cart Empty</h3>
+        <p className="text-muted"> Start Shopping .</p>
       </div>
     );
   }
 
   return (
     <div className="container my-5">
-      <h2 className="mb-4 text-center">Cart </h2>
+      <h2 className="TextCart mb-4 text-star">  Shopping Cart</h2>
+
+      {/* جدول المنتجات */}
       <div className="table-responsive">
-        <table className="table table-bordered text-center align-middle">
-          <thead className="table-primary">
-            <tr>
-              <th>الصورة</th>
-              <th>الاسم</th>
-              <th>السعر</th>
-              <th>الكمية</th>
-              <th>الإجمالي</th>
-              <th>حذف</th>
-            </tr>
-          </thead>
+        <table className="table table-secondary text-center align-middle ">
           <tbody>
             {cart.map((item) => (
               <tr key={item.id}>
@@ -75,17 +68,17 @@ const Cart = () => {
                 <td>
                   <div className="d-flex justify-content-center align-items-center gap-2">
                     <button
-                      className="btn btn-sm btn-danger"
+                      className="btn btn-sm btn-outline-danger"
                       onClick={() => updateQuantity(item.id, "dec")}
                     >
-                      -
+                    <FaMinus size={12} color="#17504C" />
                     </button>
                     <span>{item.quantity}</span>
                     <button
-                      className="btn btn-sm btn-success"
+                      className="btn btn-sm btn-outline-success"
                       onClick={() => updateQuantity(item.id, "inc")}
                     >
-                      +
+                    <FaPlus size={12} color="#17504C" />
                     </button>
                   </div>
                 </td>
@@ -95,7 +88,7 @@ const Cart = () => {
                     className="btn btn-sm btn-outline-danger"
                     onClick={() => deleteItem(item.id)}
                   >
-                    🗑
+                    <FaTrash size={18} color="#17504C" />
                   </button>
                 </td>
               </tr>
@@ -104,14 +97,55 @@ const Cart = () => {
         </table>
       </div>
 
-      <div className="text-end mt-4">
-        <h4>
-           ToteCost:{" "}
-          <span className="text-success">{totalCost} EGP</span>
-        </h4>
-        <button className="btn btn-primary mt-3 px-4 py-2">
-           Checkout
-        </button>
+      {/* نموذج الحساب */}
+      <div className="row justify-content-center mt-5">
+        <div className="col-md-6">
+          <h4 className="mb-3 text-center">Payment details</h4>
+          <form>
+            <div className="mb-3">
+              <label className="form-label">Total quantity</label>
+              <input
+                type="number"
+                className="form-control"
+                value={totalQuantity}
+                readOnly
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Total price</label>
+              <input
+                type="text"
+                className="form-control"
+                value={`${totalCost.toFixed(2)} EGP`}
+                readOnly
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Delivery price</label>
+              <input
+                type="text"
+                className="form-control"
+                value={`${shipping.toFixed(2)} EGP`}
+                readOnly
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Grand total</label>
+              <input
+                type="text"
+                className="form-control"
+                value={`${finalTotal.toFixed(2)} EGP`}
+                readOnly
+              />
+            </div>
+            <Link to="/checkout" className="d-grid gap-2" size="lg">
+                <Button variant="light" className="btnCart" size="lg">CheckOut</Button>
+            </Link>
+          </form>
+        </div>
       </div>
     </div>
   );
