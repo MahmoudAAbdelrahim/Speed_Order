@@ -8,6 +8,7 @@ import Login from './Login'
 import SignUp from './SignUp'
 import Profile from './Profile'
 import Cart from './Cart'
+import Checkout from './CheckOut';
 import Product from './Product'
 import DetailsProduct from './DetailsProduct'
 import Payment from './Payment'
@@ -15,6 +16,7 @@ import OrderTracking from './OrderTracking'
 import Successful from './Successful'
 import NotFound from "./NotFound"; // دي لو المسار غلط او مش عندنا   
 import Footer from './Footer'
+
 import './App.css';
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/Profile" element={<Profile />} />
       <Route path="/Cart" element={<Cart />} />
+      <Route path="/CheckOut" element={<Checkout />} />
       <Route path="/Product" element={<Product />} />
       <Route path="/product/:id" element={<DetailsProduct />} />
       <Route path="/Payment" element={<Payment />} />
