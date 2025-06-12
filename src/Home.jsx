@@ -9,42 +9,42 @@ import { Link } from 'react-router-dom';
 
 const ProductsCategories =[
   {
-    'id':1,
+    'id':"Clothes",
     'name':"Clothes",
     'img':'/Asset/974646d3-ecba-41a4-a968-d28d63eae916-removebg-preview.png',
   },
   {
-    'id':2,
+    'id':"Grocery",
     'name':"Grocery",
     'img':'/Asset/full-shopping-cart-groceries.png',
   },
   {
-    'id':3,
+    'id':"Vegetables",
     'name':"Vegetables",
     'img':'/Asset/e4f72981-ae5c-4248-b859-1bce1dd3e773-removebg-preview.png',
   },
   {
-    'id':4,
+    'id':"Home_Supplies",
     'name':"Home Supplies",
     'img':'/Asset/ceramic-tableware-collection-removebg-preview.png',
   },
   {
-    'id':5,
+    'id':"Fruits",
     'name':"Fruits",
     'img':'/Asset/406619159_de087cb3-09bc-4e3d-9f63-7c010f883f2b-removebg-preview.png',
   },
   {
-    'id':6,
+    'id':"Shoes",
     'name':"Shoes",
     'img':'/Asset/fashion-shoes-sneakers-removebg-preview.png',
   },
   {
-    'id':7,
+    'id':"Antiques",
     'name':"Antiques",
     'img':'/Asset/ancient-pottery-vessel-with-retro-design-removebg-preview.png',
   },
   {
-    'id':8,
+    'id':"HeadPhones",
     'name':"HeadPhones",
     'img':'/Asset/409093507_eafd0bda-3380-47b6-a3f1-b84ea9462294-removebg-preview.png',
   },
@@ -153,9 +153,11 @@ const Home = () => {
             <div className='prod-cate-small'>
           {ProductsCategories.map((category ) =>(
 
-              <div className='prod-cate'key={category.id}>
-                <img  src={category.img} alt={category.name} />
-                <h4>{category.name}</h4>
+              <div key={category.id}>
+                <Link className='prod-cate' to={`/Product#${category.id}`}>
+                  <img  src={category.img} alt={category.name} />
+                  <h4>{category.name}</h4>
+                </Link>
               </div>
           ))}
           </div>
@@ -164,7 +166,23 @@ const Home = () => {
         </div>
 
         {/* how to work */}
-        <div>how to work</div>
+        <div className='How-it-Work'>
+          <h1>How it works</h1>
+          <div>
+            <p>
+              Speed Order makes shopping fast and easy.
+                Just open the app or website, browse a variety
+                of products like groceries, clothes, and electronics, then
+                add what you need to your cart.After a quick
+                and secure checkout, you can track your order live
+                on a real-time map. A professional courier will deliver
+                It right to your doorstep. Once you receive your order,
+                you can rate the service with five stars.
+                Its fast, reliable, and convenient — thats Speed Order.
+            </p>
+            <img src="/Asset/Gemini_Generated_Image_u62r4ou62r4ou62r.jpeg" alt="" />
+          </div>
+        </div>
       </div>
     </div>
   )
