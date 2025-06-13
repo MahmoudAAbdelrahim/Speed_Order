@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
 
 
@@ -222,8 +230,7 @@ a{
 }
 /*profile*/
 .date{
-    display: flex
-;
+    display: flex;
     justify-content: flex-start;
     gap: 20px;
     flex-wrap: wrap;
@@ -323,6 +330,7 @@ a{
   font-size: 14px;
 }
 
+/* Header  */
 
 .Header {
   display: flex;
@@ -335,11 +343,11 @@ a{
 
 .Header > div {
   flex: 1 1 45%;
-  min-width: 400px;
+  min-width: 300px;
 }
 
 .H_title {
-  font-size: clamp(2rem, 8vw, 4rem);
+  font-size: clamp(2.5rem, 8vw, 4rem);
   font-weight: bold;
   color: #0077b6;
 }
@@ -352,7 +360,7 @@ a{
   font-size: clamp(1rem, 3vw, 1.5rem);
   font-weight: bold;
   color: #17504C;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .btn_Order  {
@@ -396,7 +404,23 @@ a{
   height: auto;
   object-fit: contain;
 }
+@media (max-width: 768px) {
+  .H_img .bg_img{
+    max-width: 250px;
+    margin-right: 200px;
+  }
+  .H_img {
+    width: 50%;
+  }
 
+  .Header .H-text{
+  margin-left: 10px;
+}
+
+.bg_img img {
+  width: 320px;
+}
+}
 .prodcate {
   width: 100%;
   background-color: #55555521;
@@ -452,20 +476,20 @@ a{
 .How-it-Work > div {
   display: flex;
   padding: 20px 0 0 50px;
-  flex-wrap: wrap; /* يتيح التغيير في الاتجاه عند الحاجة */
+  flex-wrap: wrap; 
 
   gap: 20px;
 }
 
 .How-it-Work > div img {
-  width: 45%;
+  width: 47%;
   max-width: 500px;
-  min-width: 450px;
+  min-width: 250px;
   margin: 0 30px;
 }
 
 .How-it-Work > div p {
-  font-size: clamp(1rem, 2.5vw, 1.8rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.8rem);
   font-weight: 500;
   max-width: 600px;
 }
@@ -478,17 +502,19 @@ a{
   }
 
   .How-it-Work h1 {
-    padding: 30px 20px 0;
+    padding: 10px 0px 0px 10px;
     font-size: 2rem;
   }
 
-  .How-it-Work > div img {
-    width: 100%;
-    margin: 20px 0;
-  }
+  
 
   .How-it-Work > div p {
     
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
+  .How-it-Work > div img {
+ 
+ 
+  margin: 0 0px;
+}
 }

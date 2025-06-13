@@ -125,8 +125,8 @@ const Home = () => {
               <div className='H-text'>
                 <h1 className='H_title'>Speed <span>Order</span> </h1>
                 <p className='H_p'>
-                  From Your Order To Delivery To Your <br />
-                  Door Quicly And Professionlly...
+                  From Your Order To Delivery To <br /> Your 
+                  Door Quicly ...
                 </p>
                 <button className='btn_Order'>
                   <Link className='btn_link' to='/login'>

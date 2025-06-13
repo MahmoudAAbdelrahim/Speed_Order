@@ -6,6 +6,13 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaShoppingCart, FaSearch, FaUser } from 'react-icons/fa';
 
 function CollapsibleExample() {
+   
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+  
   const [userImage, setUserImage] = useState("/img/features3.png");
 
   useEffect(() => {
