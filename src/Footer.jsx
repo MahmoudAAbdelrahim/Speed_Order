@@ -39,11 +39,11 @@ function Footer() {
         <div className="footer-section social">
           <h5>Follow Us</h5>
           <div className="social-icons">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaTelegramPlane /></a>
-            <a href="#"><FaWhatsapp /></a>
-            <a href="#"><FaGoogle /></a>
+            <a href="#Facebook"><FaFacebookF /></a>
+            <a href="#Instagram"><FaInstagram /></a>
+            <a href="#telegram"><FaTelegramPlane /></a>
+            <a href="#whatsapp"><FaWhatsapp /></a>
+            <a href="#google"><FaGoogle /></a>
           </div>
         </div>
       </div>
