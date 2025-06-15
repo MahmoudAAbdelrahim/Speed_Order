@@ -15,4 +15,8 @@
     "express": "^5.1.0",
     "mongoose": "^8.15.1"
   }
+  "scripts": {
+  "build": "CI=false react-scripts build"
+}
+
 }
