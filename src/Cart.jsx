@@ -4,7 +4,7 @@ import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button'
 const Cart = () => {
   const [cart, setCart] = useState([]);
-  const [shipping, setShipping] = useState(30); // سعر التوصيل
+  const [shipping] = useState(30); // سعر التوصيل
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
