@@ -6,10 +6,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaShoppingCart, FaSearch, FaUser } from 'react-icons/fa';
 
 function CollapsibleExample() {
-   
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  
   const [userImage, setUserImage] = useState("/img/features3.png");
 
   useEffect(() => {
@@ -31,21 +27,11 @@ function CollapsibleExample() {
           <Nav.Link href="/Cart"><FaShoppingCart size={18} color="white" /></Nav.Link>
           <Nav.Link href="/profile">
           <div className="bob">
-            {userImage ? (
-              <img
-                src={userImage}
-                alt="User"
-                style={{
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "50%",
-                  objectFit: "cover"
-                }}
-              />
-            ) : (
-              <FaUser size={30} style={{ borderRadius: "50%", backgroundColor: "#ccc", padding: "5px" }} />
-            )}
-
+            <img
+              src={userImage}
+              alt="<FaUser size={18} />"
+              style={{ width: "30px", height: "30px", borderRadius: "50%", objectFit: "cover" }}
+            />
           </div>
           </Nav.Link>
         </div>

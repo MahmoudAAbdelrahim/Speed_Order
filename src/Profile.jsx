@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FaCalendarPlus,FaRegCircleXmark } from 'react-icons/fa6';
-import {FaRegCheckCircle } from 'react-icons/fa';
+import { FaCalendarPlus, FaRegCircleXmark } from 'react-icons/fa6';
+import { FaRegCheckCircle } from 'react-icons/fa';
 
 const Profile = () => {
   const [user, setUser] = useState({});
   const [message, setMessage] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     phone: "",
     email: "",
     image: ""
@@ -19,16 +19,17 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("userInfo"));
-    if (!storedUser || !storedUser.isLoggedIn) {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+    if (!userInfo || !userInfo.isLoggedIn) {
       navigate("/login");
     } else {
-      setUser(storedUser);
+      setUser(userInfo);
       setFormData({
-        fullName: storedUser.fullName || "",
-        phone: storedUser.phone || "",
-        email: storedUser.email || "",
-        image: storedUser.image || ""
+        name: userInfo.user?.name || "",
+        phone: userInfo.user?.phone || "",
+        email: userInfo.user?.email || "",
+        image: userInfo.user?.image || ""
       });
     }
 
@@ -60,7 +61,13 @@ const Profile = () => {
   };
 
   const handleSave = () => {
-    const updatedUser = { ...user, ...formData };
+    const updatedUser = {
+      ...user,
+      user: {
+        ...user.user,
+        ...formData
+      }
+    };
     setUser(updatedUser);
     localStorage.setItem("userInfo", JSON.stringify(updatedUser));
     setMessage("Profile updated successfully.");
@@ -122,20 +129,19 @@ const Profile = () => {
         <div>
           {editMode ? (
             <>
-              <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="form-control my-2" placeholder="Full Name" />
+              <input type="text" name="name" value={formData.name} onChange={handleChange} className="form-control my-2" placeholder="Full Name" />
               <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="form-control my-2" placeholder="Phone" />
               <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-control my-2" placeholder="Email" />
               <button className="btn btn-success my-1" onClick={handleSave}>Save</button>
               <button className="btn btn-secondary mx-2" onClick={() => setEditMode(false)}>Cancel</button>
             </>
           ) : (
-            <div  style={{ fontSize: '22px', fontWeight: '400' }}>
-              <span style={{ fontWeight: 'bolder' }}>{user.fullName || "غير متوفر"}</span>
-              <br /> {user.phone || "غير متوفر"}
+            <div style={{ fontSize: '22px', fontWeight: '400' }}>
+              <span style={{ fontWeight: 'bolder' }}>{user.user?.name || "غير متوفر"}</span>
+              <br /> {user.user?.phone || "غير متوفر"}
               <p style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}>
-                {user.email || "غير متوفر"}
+                {user.user?.email || "غير متوفر"}
               </p>
-
             </div>
           )}
 
@@ -152,7 +158,7 @@ const Profile = () => {
 
       {/* الطلبات قيد التوصيل */}
       <div className="mt-5">
-        <h4 className='TextCheck' >Your current requests</h4>
+        <h4 className='TextCheck'>Your current requests</h4>
         <div className="d-flex flex-wrap gap-3">
           {pendingOrders.length === 0 ? (
             <p>There are no requests currently.</p>
@@ -186,8 +192,8 @@ const Profile = () => {
                     onClick={(e) => e.stopPropagation()}
                   >
                     <strong>Order date:</strong> {order.orderedAt} <br />
-                    <strong>Payment made:</strong> <FaRegCheckCircle fontSize={18} color='green' />             
-                     <br />
+                    <strong>Payment made:</strong> <FaRegCheckCircle fontSize={18} color='green' />
+                    <br />
                     <strong>Received:</strong><FaRegCircleXmark fontSize={18} color='red' /><br />
 
                     <button className="btn BProfile btn-sm btn-outline-success mt-2" onClick={() => toggleDelivered(orders.indexOf(order))}>
@@ -195,7 +201,7 @@ const Profile = () => {
                     </button>
 
                     <button className="btn BProfile btn-sm btn-outline-danger mt-2 ms-2" onClick={() => handleDeleteOrder(orders.indexOf(order))}>
-                        Return the order
+                      Return the order
                     </button>
                   </div>
                 )}
@@ -236,7 +242,7 @@ const Profile = () => {
                   {order.orderedAt}
                 </div>
                 <button className="btn BProfile btn-sm btn-outline-danger mt-2" onClick={() => handleDeleteOrder(orders.indexOf(order))}>
-                    Return the order
+                  Return the order
                 </button>
               </div>
             ))

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
   const navigate = useNavigate();
@@ -22,12 +23,20 @@ const Checkout = () => {
   const finalTotal = totalCost + shipping;
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCart(storedCart);
-
-    const storedInfo = JSON.parse(localStorage.getItem("checkoutInfo"));
-    if (storedInfo) {
-      setFormData(storedInfo);
+     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+  if (storedCart.length === 0) {
+    navigate("/Cart");
+    setMessage({ text: "Your cart is empty, please add products to continue.", type: "danger" });
+    return;
+  }
+  setCart(storedCart);
+  const storedInfo = JSON.parse(localStorage.getItem("checkoutInfo"));
+  if (storedInfo) {
+    setFormData(storedInfo);
+  if (message.text) {
+    const timer = setTimeout(() => setMessage({ text: "", type: "" }), 4000);
+    return () => clearTimeout(timer);
+  }
     }
   }, []);
 
@@ -39,45 +48,53 @@ const Checkout = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const requiredFields = ["fullName", "phone", "city", "district", "area", "address"];
-    const missingFields = requiredFields.filter((field) => formData[field].trim() === "");
+  const requiredFields = ["fullName", "phone", "city", "district", "area", "address"];
+  const missingFields = requiredFields.filter((field) => formData[field].trim() === "");
 
-    if (missingFields.length > 0) {
-      setMessage({ text: " Please fill in all required fields.", type: "danger" });
-      return;
-    }
+  if (missingFields.length > 0) {
+    setMessage({ text:"Please fill in all required fields to continue with your order.", type: "danger" });
+    return;
+  }
 
-    localStorage.setItem("checkoutInfo", JSON.stringify(formData));
+localStorage.setItem("checkoutInfo", JSON.stringify(formData));
+localStorage.setItem("selectedOrder", JSON.stringify(cart)); //  ده المهم
 
-    const user = JSON.parse(localStorage.getItem("userInfo"));
-
-    if (!user || !user.isLoggedIn) {
-      setMessage({ text: " You must log in first.", type: "danger" });
-      setTimeout(() => {
-        navigate("/login");
-      }, 1500);
-      return;
-    }
-
-    setMessage({ text: " Data has been saved successfully, you will be redirected to payment", type: "success" });
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  if (!user || !user.isLoggedIn || !user.token) {
+    setMessage({ text: " You must log in first.", type: "danger" });
     setTimeout(() => {
-      navigate("/payment");
+      navigate("/login?redirect=/checkout");
     }, 1500);
-  };
+    return;
+  }
+try {
+  const oldOrders = JSON.parse(localStorage.getItem("pendingOrder")) || [];
+  const newOrders = [...oldOrders, ...cart];
+  localStorage.setItem("pendingOrder", JSON.stringify(newOrders));
+
+  // رسالة نجاح
+  setMessage({ text: "Order submitted successfully, redirecting to payment ✔✔ .", type: "success" });
+
+  // بعد 1.5 ثانية روح لصفحة الدفع
+  setTimeout(() => {
+    localStorage.removeItem("cart"); // فضي السلة
+    navigate("/payment");
+  }, 1500);
+} catch (error) {
+  console.error(error);
+  setMessage({ text: "Error submitting your order. Please try again ❌.", type: "danger" });
+}
+};
+
 
   return (
     <div className="container Login my-5">
       <h2 className="TextCheck  mb-4 text-center" style={{fontSize:'30px', fontWeight:'bold'}}> CheckOut</h2>
 
-      {message.text && (
-        <div className={`alert alert-${message.type} text-center`} role="alert">
-          {message.text}
-        </div>
-      )}
-
+    
       {/* عرض المنتجات */}
       <div className="row mb-5">
         <h5 className="TextCheck"> Required products</h5>
@@ -87,7 +104,7 @@ const Checkout = () => {
             <div>
               <p className=" TextCheck mb-1 fw-bold">{item.name}</p>
               <p className="mb-0 text-muted">
-                Quantity: {item.quantity} - price: {(item.price * item.quantity).toFixed(2)} EGP
+                Quantity: {item.quantity} - price: {(item.price * item.quantity).toLocaleString()} EGP
               </p>
             </div>
           </div>
@@ -129,8 +146,14 @@ const Checkout = () => {
         </div>
 
         <div className="text-center">
-            <button type="submit" className="btnLogin">
-            CheckOut
+            {message.text && (
+        <div className={`alert alert-${message.type} text-center`} role="alert">
+          
+          {message.text}
+        </div>
+      )}
+          <button type="submit" className="btnLogin">
+            Confirm and Pay
           </button>
         </div>
       </form>

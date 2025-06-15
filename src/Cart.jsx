@@ -4,7 +4,7 @@ import { FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button'
 const Cart = () => {
   const [cart, setCart] = useState([]);
-  const [shipping] = useState(30); // سعر التوصيل
+  const [shipping, setShipping] = useState(30); // سعر التوصيل
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -64,7 +64,7 @@ const Cart = () => {
                   />
                 </td>
                 <td>{item.name}</td>
-                <td>{item.price.toFixed(2)} EGP</td>
+                <td>{item.price} EGP</td>
                 <td>
                   <div className="d-flex justify-content-center align-items-center gap-2">
                     <button

@@ -19,9 +19,9 @@ function Footer() {
         <div className="footer-section">
           <h5>Account</h5>
           <ul>
-            <li><a href="./SignUp">Create Account</a></li>
-            <li><a href="./Login">Login</a></li>
-            <li><a href="./Profile">Your Profile</a></li>
+            <li><a href="/SignUp">Create Account</a></li>
+            <li><a href="/Login">Login</a></li>
+            <li><a href="/Profile">Your Profile</a></li>
             <li><a href="#browse">Browse</a></li>
           </ul>
         </div>
@@ -39,11 +39,11 @@ function Footer() {
         <div className="footer-section social">
           <h5>Follow Us</h5>
           <div className="social-icons">
-            <a href="#Facebook"><FaFacebookF /></a>
-            <a href="#Instagram"><FaInstagram /></a>
-            <a href="#telegram"><FaTelegramPlane /></a>
-            <a href="#whatsapp"><FaWhatsapp /></a>
-            <a href="#google"><FaGoogle /></a>
+            <a href="#"><FaFacebookF /></a>
+            <a href="#"><FaInstagram /></a>
+            <a href="#"><FaTelegramPlane /></a>
+            <a href="#"><FaWhatsapp /></a>
+            <a href="#"><FaGoogle /></a>
           </div>
         </div>
       </div>
