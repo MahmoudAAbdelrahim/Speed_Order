@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FaShoppingCart, FaSearch, FaUser } from 'react-icons/fa';
+import { FaShoppingCart, FaSearch} from 'react-icons/fa';
 
 function CollapsibleExample() {
   const [userImage, setUserImage] = useState("/img/features3.png");
@@ -29,7 +29,7 @@ function CollapsibleExample() {
           <div className="bob">
             <img
               src={userImage}
-              alt="<FaUser size={18} />"
+              alt="< FaUser size={18} />"
               style={{ width: "30px", height: "30px", borderRadius: "50%", objectFit: "cover" }}
             />
           </div>
