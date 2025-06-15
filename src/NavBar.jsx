@@ -9,9 +9,6 @@ function CollapsibleExample() {
    
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
   
   const [userImage, setUserImage] = useState("/img/features3.png");
 
