@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
 
 const Checkout = () => {
@@ -14,6 +15,8 @@ const Checkout = () => {
     address: "",
   });
 
+  
+
   const [cart, setCart] = useState([]);
   const [shipping] = useState(30);
   const [message, setMessage] = useState({ text: "", type: "" }); //  رسالة
@@ -21,23 +24,28 @@ const Checkout = () => {
   const totalCost = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
   const finalTotal = totalCost + shipping;
 
-  useEffect(() => {
-     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+useEffect(() => {
+  const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
   if (storedCart.length === 0) {
     navigate("/Cart");
     setMessage({ text: "Your cart is empty, please add products to continue.", type: "danger" });
     return;
   }
   setCart(storedCart);
+
   const storedInfo = JSON.parse(localStorage.getItem("checkoutInfo"));
   if (storedInfo) {
     setFormData(storedInfo);
+  }
+}, [navigate]);
+
+useEffect(() => {
   if (message.text) {
     const timer = setTimeout(() => setMessage({ text: "", type: "" }), 4000);
     return () => clearTimeout(timer);
   }
-    }
-  }, []);
+}, [message.text]);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
