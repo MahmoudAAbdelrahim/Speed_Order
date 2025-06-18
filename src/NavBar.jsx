@@ -5,13 +5,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaShoppingCart, FaSearch, FaUser } from 'react-icons/fa';
 
-function CollapsibleExample() {
+function CollapsibleExample({cartCount }) {
    
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  
   
   const [userImage, setUserImage] = useState("/img/features3.png");
 
@@ -31,7 +27,31 @@ function CollapsibleExample() {
 
         <div className="d-flex align-items-center mx-auto text-center gap-3 order-lg-2">
           <Nav.Link href="#search"><FaSearch size={18} color="white" /></Nav.Link>
-          <Nav.Link href="/Cart"><FaShoppingCart size={18} color="white" /></Nav.Link>
+          <Nav.Link href="/Cart" style={{ position: 'relative', display: 'inline-block' }}>
+  <div style={{ position: 'relative' }}>
+    <FaShoppingCart size={22} color="white" />
+    {cartCount > 0 && (
+      <span
+        style={{
+          position: 'absolute',
+          top: '-8px',
+          right: '-10px',
+          background: '#17504C',
+          color: 'white',
+          borderRadius: '50%',
+          padding: '2px 6px',
+          fontSize: '12px',
+          fontWeight: 'bold',
+          lineHeight: '1',
+          minWidth: '20px',
+          textAlign: 'center',
+        }}
+      >
+        {cartCount}
+      </span>
+    )}
+  </div>
+</Nav.Link>
           <Nav.Link href="/profile">
           <div className="bob">
             {userImage ? (

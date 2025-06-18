@@ -1,4 +1,5 @@
-import React from 'react'; 
+
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,14 +17,21 @@ import OrderTracking from './OrderTracking'
 import Successful from './Successful'
 import NotFound from "./NotFound"; // دي لو المسار غلط او مش عندنا   
 import Footer from './Footer'
-
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 
 function App() {
+
+    
+    const [cartCount, setCartCount] = useState(0);
+
+  const handleAddToCart = () => {
+    setCartCount(prev => prev + 1);
+  }; 
   return (
   <>
-  <NavBar/>
+  <NavBar cartCount={cartCount}/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/NavBar" component={<NavBar/>} />
@@ -33,7 +41,7 @@ function App() {
       <Route path="/Cart" element={<Cart />} />
       <Route path="/CheckOut" element={<Checkout />} />
       <Route path="/Product" element={<Product />} />
-      <Route path="/product/:id" element={<DetailsProduct />} />
+      <Route path="/product/:id" element={<DetailsProduct onAddToCart={handleAddToCart} />} />
       <Route path="/Payment" element={<Payment />} />
       <Route path="/OrderTracking" element={<OrderTracking />} />
       <Route path="/Successful" element={<Successful />} />

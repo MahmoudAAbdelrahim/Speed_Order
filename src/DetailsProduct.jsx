@@ -1,8 +1,10 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { FaShoppingCart } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
-function DetailsProduct() {
+function DetailsProduct({onAddToCart }) {
   const { id } = useParams();
   const navigate = useNavigate();
   const [product, setProduct] = useState(null);
@@ -26,6 +28,15 @@ function DetailsProduct() {
   }, [id]);
 
   const [related, setRelated] = useState([]);
+
+  //Alert masseg for add to cart
+  const alertMassge=()=>{
+    toast.success('Product Added to Cart ✅', {
+      position: "top-center",
+      autoClose: 3000,
+      theme: "colored"
+    });
+  }
 
   const addToCart = () => {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -80,7 +91,13 @@ function DetailsProduct() {
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <h5>{product.price} EGP</h5>
-          <button className="btn btnCart mt-2" onClick={addToCart}>
+          <button className="btn btnCart mt-2" onClick={()=>{
+            // eslint-disable-next-line no-unused-expressions
+            addToCart(),
+            onAddToCart (),
+            alertMassge ()}
+            }>
+              <ToastContainer/>
             <FaShoppingCart size={18} /> Add to Cart
           </button>
         </div>
