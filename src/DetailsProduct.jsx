@@ -92,7 +92,6 @@ function DetailsProduct({onAddToCart }) {
           <p>{product.description}</p>
           <h5>{product.price} EGP</h5>
           <button className="btn btnCart mt-2" onClick={()=>{
-            // eslint-disable-next-line no-unused-expressions
             addToCart(),
             onAddToCart (),
             alertMassge ()}
