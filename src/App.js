@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/ReactToastify.css';
 import NavBar from './NavBar'
 import Home from './Home'
 import Login from './Login'
