@@ -14,7 +14,6 @@ const OrderTracking = () => {
   useEffect(() => {
     try {
       const user = JSON.parse(localStorage.getItem("userInfo"));
-      const localOrders = JSON.parse(localStorage.getItem("orderHistory")) || [];
       const localPending = JSON.parse(localStorage.getItem("pendingOrder")) || [];
 
       if (user?.isLoggedIn && user.token) {
