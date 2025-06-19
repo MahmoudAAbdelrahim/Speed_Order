@@ -92,8 +92,8 @@ function DetailsProduct({onAddToCart }) {
           <p>{product.description}</p>
           <h5>{product.price} EGP</h5>
           <button className="btn btnCart mt-2" onClick={()=>{
-            addToCart(),
-            onAddToCart (),
+            addToCart()
+            onAddToCart ()
             alertMassge ()}
             }>
               <ToastContainer/>
