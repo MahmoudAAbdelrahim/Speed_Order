@@ -17,7 +17,6 @@ import OrderTracking from './OrderTracking'
 import Successful from './Successful'
 import NotFound from "./NotFound"; // دي لو المسار غلط او مش عندنا   
 import Footer from './Footer'
-import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 
