@@ -24,7 +24,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-console.log("✅ VITE_API_URL =", import.meta.env.VITE_API_URL);
 
     const { fullName, email, phone, password } = formData;
 
@@ -34,7 +33,7 @@ console.log("✅ VITE_API_URL =", import.meta.env.VITE_API_URL);
     }
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
+const response = await fetch(`https://metro.proxy.rlwy.net:27943/api/users`, {
 
         method: "POST",
         headers: {
