@@ -21,10 +21,10 @@ const Signup = () => {
       [name]: value,
     }));
   };
-console.log("✅ VITE_API_URL =", import.meta.env.VITE_API_URL);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+console.log("✅ VITE_API_URL =", import.meta.env.VITE_API_URL);
 
     const { fullName, email, phone, password } = formData;
 
