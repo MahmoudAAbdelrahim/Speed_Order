@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -17,6 +18,18 @@ app.use(express.json());
 // Routes
 app.use("/api/users", authRoutes);
 app.use("/api/orders", orderRoutes);
+
+// Test Route
+app.get("/api/test", (req, res) => {
+  res.json({ msg: "✅ Backend working!" });
+});
+
+// Serve React files (لو هتدمجهم بعدين)
+app.use(express.static(path.join(__dirname, "client", "dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 // Connect DB
 mongoose.connect(process.env.MONGO_URI)
