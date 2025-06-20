@@ -33,19 +33,19 @@ const Signup = () => {
     }
 
     try {
-const response = await fetch(`https://metro.proxy.rlwy.net:27943/api/users`, {
+const response = await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    name: fullName,
+    phone,
+    email,
+    password,
+  }),
+});
 
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: fullName,
-          phone,
-          email,
-          password,
-        }),
-      });
 
       const data = await response.json();
 
