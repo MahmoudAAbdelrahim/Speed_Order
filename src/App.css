@@ -565,7 +565,7 @@ a{
   
 }
 
-form{
+.formContactUS form{
   width: 80%;
   height: 400px;
   display: flex;
@@ -579,14 +579,14 @@ form{
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-input{
+.formContactUS input{
   width: 100%;
   border-radius: 20px;
   padding: 10px;
   height: 40px;
   border: none;
 }
-textarea{
+.formContactUS textarea{
   width: 100%;
   border-radius: 10px;
   padding: 10px;
@@ -594,7 +594,7 @@ textarea{
   border: none;
 }
 
-input:hover{
+.formContactUS input:hover{
   border: 1px solid #124438;
   
 }
@@ -606,7 +606,7 @@ input:hover{
   font-size: large;
   font-weight: bold;
 }
-button:hover{
+.formContactUS button:hover{
    width: 100%;
   border-radius: 20px;
   padding: 10px;
@@ -629,14 +629,14 @@ button:hover{
     margin: 10px 0;
   }
 
-  form {
+  .formContactUS form {
     width: 100%;
     height: auto;
   }
 
-  input,
-  textarea,
-  button {
+  .formContactUS input,
+  .formContactUS textarea,
+  .formContactUS button {
     font-size: 16px;
   }
 }
@@ -660,7 +660,7 @@ button:hover{
     font-size: 16px;
   }
 
-  button {
+  .formContactUS button {
     font-size: 16px;
   }
 }
