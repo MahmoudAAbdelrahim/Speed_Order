@@ -571,8 +571,8 @@ a{
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
-  padding: 20px;
+  background-color:#0095c7a9; /* أبيض شفاف */
+  padding: 30px;
   border-radius: 20px;
   backdrop-filter: blur(8px); /* تأثير الزجاج المموه */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -599,21 +599,22 @@ a{
   
 }
 
-.formContactUS button{
-   width: 100%;
+.formContactUS button {
+  width: 100%;
   border-radius: 20px;
   padding: 10px;
   font-size: large;
   font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
-.formContactUS button:hover{
-   width: 100%;
-  border-radius: 20px;
-  padding: 10px;
+
+.formContactUS button:hover {
+  transform: scale(1.05); /* تكبير الزر بنسبة 5% */
   border: 1px solid #124438;
   background-color: #062c38;
   color: white;
 }
+
 @media (max-width: 992px) {
   .ContactUS{
     height: auto;
