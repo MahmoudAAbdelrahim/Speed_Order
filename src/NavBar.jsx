@@ -79,6 +79,7 @@ function CollapsibleExample({cartCount }) {
           <Nav className="mx-auto text-center">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/Product">Product</Nav.Link>
+            <Nav.Link href="/ContactUS" >Contact US</Nav.Link>
             <NavDropdown title="Dropdown" id="collapsible-nav-dropdown">
               <NavDropdown.Item href="/OrderTracking">OrderTracking</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

@@ -518,3 +518,150 @@ a{
   margin: 0 0px;
 }
 }
+
+
+.ContactUS{
+  background-color: #cccccc56;
+  padding: 20px;
+  height: 600px;
+}
+
+
+.ContactUS h1{
+  font-weight: bold;
+  text-align: center;
+  color: #124438;
+  padding: 10px;
+}
+.ContactUS .description{
+  text-align: center;
+  
+}
+.contact{
+  display: flex;
+  padding:5px 20px;
+}
+.contact .infoContactUS{
+  margin: 10px;
+  width: 47%;
+}
+
+.infoContactUS_item{
+  display: flex;
+  
+  gap:0 5px;
+  font-weight: bold;
+}
+.infoContactUS_item  .i{
+  color:white;
+  background-color: #124438;
+  padding: 3px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+}
+.formContactUS{
+  width: 45%;
+  margin: 10px;
+  
+}
+
+form{
+  width: 80%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.1); /* أبيض شفاف */
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px); /* تأثير الزجاج المموه */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+input{
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  height: 40px;
+  border: none;
+}
+textarea{
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  height: 80px;
+  border: none;
+}
+
+input:hover{
+  border: 1px solid #124438;
+  
+}
+
+button{
+   width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: large;
+  font-weight: bold;
+}
+button:hover{
+   width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid #124438;
+  background-color: #062c38;
+  color: white;
+}
+@media (max-width: 992px) {
+  .ContactUS{
+    height: auto;
+  }
+  .contact {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .contact .infoContactUS,
+  .formContactUS {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  form {
+    width: 100%;
+    height: auto;
+  }
+
+  input,
+  textarea,
+  button {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .ContactUS h1 {
+    font-size: 24px;
+  }
+
+  .ContactUS .description {
+    font-size: 14px;
+  }
+
+  .infoContactUS_item {
+    font-size: 14px;
+    gap: 5px;
+  }
+
+  .infoContactUS_item .i {
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+}

@@ -18,6 +18,7 @@ import Successful from './Successful'
 import NotFound from "./NotFound"; // دي لو المسار غلط او مش عندنا   
 import Footer from './Footer'
 import './App.css';
+import ContactUS from './ContactUS';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/NavBar" component={<NavBar/>} />
+      <Route path="/ContactUS" element={<ContactUS />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/Profile" element={<Profile />} />
